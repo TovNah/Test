@@ -3,7 +3,9 @@ import sys
 import Windows
 from PyQt5.QtWidgets import QApplication, QWidget
 #from PyQt5.QtCore import Qt
- 
+
+
+
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)

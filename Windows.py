@@ -1,9 +1,10 @@
 import sys
 from PyQt5.QtWidgets import (QWidget, QToolTip,
     QPushButton, QApplication, QHBoxLayout)
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QIcon
 from PyQt5.QtCore import QCoreApplication
 import subprocess
+import SystemTrayIcon
 
 
 class Windows(QWidget):
@@ -18,7 +19,8 @@ class Windows(QWidget):
         QToolTip.setFont(QFont('SansSerif', 10))
 
         self.setToolTip('This is a <b>QWidget</b> widget')
-
+        self.tray_icon = SystemTrayIcon.SystemTrayIcon(QIcon('idea.png'), self)
+        self.tray_icon.show()
         btn = QPushButton('Кнопка', self)
         btn.setToolTip('This is a <b>QPushButton</b> widget')
         btn.resize(btn.sizeHint())
@@ -35,13 +37,11 @@ class Windows(QWidget):
         hbox.addWidget(btn)
         hbox.addWidget(exit)
 
-        hbox.addWidget(exit)
-
         
 
         self.setGeometry(300, 300, 300, 200)
         self.setWindowTitle('Tooltips')
-        self.show()
+        # self.show()
 
     def notif(self):
         subprocess.Popen(['notify-send', 'Hello World '])
