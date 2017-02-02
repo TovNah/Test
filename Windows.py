@@ -35,6 +35,8 @@ class Windows(QWidget):
         hbox.addWidget(btn)
         hbox.addWidget(exit)
 
+        hbox.addWidget(exit)
+
         
 
         self.setGeometry(300, 300, 300, 200)
