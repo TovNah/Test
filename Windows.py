@@ -21,7 +21,7 @@ class Windows(QWidget):
         self.setToolTip('This is a <b>QWidget</b> widget')
         self.tray_icon = SystemTrayIcon.SystemTrayIcon(QIcon('idea.png'), self)
         self.tray_icon.show()
-        self.setStylesheet("border-radius: 10px")
+        # self.setStylesheet("border-radius: 10px")
         # self.autoFillBackground(True)
         
         btn = QPushButton('Кнопка', self)
@@ -37,18 +37,16 @@ class Windows(QWidget):
 
         textSearch = QLineEdit(self)
         textSearch.move(200, 10)
+        textSearch.resize(470, 26)
         
         hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(btn)
         hbox.addWidget(exit)
         hbox.addWidget(textSearch)
-
-       
-
         
 
-        self.setGeometry(1500, 400, 700, 50)
+        self.setGeometry(1500, 400, 700, 47)
         self.setWindowTitle('Tooltips')
         self.setWindowFlags(Qt.FramelessWindowHint)
 
@@ -59,7 +57,7 @@ class Windows(QWidget):
         #         QSystemTrayIcon.Information,
         #         2000
         #     )
-        # self.show()
+        self.show()
 
     def notif(self):
         subprocess.Popen(['notify-send', 'Hello World '])
